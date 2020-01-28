@@ -4,7 +4,7 @@ filename = "/usr/share/dict/words"
 
 
 def returnSentence(lines):
-    index = 5  # how many words to use
+    index = 20  # how many words to use
     sentence = ""
 
     while index > 0:
@@ -13,6 +13,8 @@ def returnSentence(lines):
         index -= 1
 
     return sentence
+
+
 
 if __name__ == '__main__':
     file = open(filename, 'r')
