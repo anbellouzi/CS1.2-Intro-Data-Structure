@@ -35,12 +35,12 @@ if __name__ == '__main__':
 
     histogram_result = histogram(lines)
     print("\nHistogram", '\n')
-    # print(histogram_result, '\n')
+    print(histogram_result, '\n')
 
     unique_words_result = unique_words(histogram_result)
     print(unique_words_result, "Unique Words\n")
 
-     word = "what" # check word frequency
+    word = "mystery" # check word frequency
 
     word_frequency = frequency(word, histogram_result)
     print("Word: '"+word+ "' appeared: "+str(word_frequency), " times\n")
