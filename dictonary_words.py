@@ -4,8 +4,10 @@ filename = "/usr/share/dict/words"
 
 
 def returnSentence(lines):
-    index = 20  # how many words to use
+    index = 2  # how many words to use
     sentence = ""
+
+    lines = lines.split('.')
 
     while index > 0:
         sentence += lines[randint(0, len(lines)-1)].rstrip('\n')
