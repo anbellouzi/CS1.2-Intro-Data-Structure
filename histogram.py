@@ -1,15 +1,26 @@
-# return a histogram data structure that stores each unique word along with the number of times the word appears in the source text.
-def histogram(source_text):
-    histogram = {}
-    for line in source_text:
-        words = line.rstrip('\n').split()
-        for word in words:
-            if (word in histogram):
-                histogram[word] += 1
-            else:
-                histogram[word] = 1
 
-    return histogram
+class Histogram():
+
+    def __init__(self, data):
+        """Initialize this node with the given data."""
+        pass
+
+    # return a histogram data structure that stores each unique word along with the number of times the word appears in the source text.
+    def histogram():
+        filename = './adventure_holmes.txt'
+        file = open(filename, 'r')
+        lines = file.readlines()
+
+        histogram = {}
+        for line in lines:
+            words = line.rstrip('\n').split()
+            for word in words:
+                if (word in histogram):
+                    histogram[word] += 1
+                else:
+                    histogram[word] = 1
+
+        return histogram
 
 # returns the total count of unique words in the histogram
 def unique_words(histogram):
@@ -29,11 +40,7 @@ def frequency(word, histogram):
 
 
 if __name__ == '__main__':
-    filename = '/Users/Anas/Desktop/MakeSchool/Term_3/CS1.2/Assignments/CS1.2-Intro-Data-Structure/adventure_holmes.txt'
-    file = open(filename, 'r')
-    lines = file.readlines()
-
-    histogram_result = histogram(lines)
+    histogram_result = histogram()
     print("\nHistogram", '\n')
     print(histogram_result, '\n')
 

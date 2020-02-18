@@ -12,8 +12,6 @@ def reaarange():
     return wordDic
 
 
-
-
 if __name__ == "__main__":
     args = sys.argv
     args.pop(0) # remove function name from args
