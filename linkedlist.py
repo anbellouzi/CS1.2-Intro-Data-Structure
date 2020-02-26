@@ -59,7 +59,7 @@ class LinkedList(object):
         temp = self.head
         count = 0
     
-        while temp is not None:
+        while temp:
             count += 1
             temp = temp.next
         
@@ -72,35 +72,31 @@ class LinkedList(object):
         new_node = Node(item)
         # TODO: Append node after tail, if it exists
 
-
         # TODO: Append node after tail, if it exists
 
         if self.head is None:
             self.head = new_node
-            self.tail = new_node
-            return
-            
-        last = self.head
-        while last.next:
-            last = last.next
-        
-        last.next = new_node
+        else:
+           self.tail.next = new_node
+
+        self.tail = new_node 
+
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Create new node to hold given item
         # TODO: Prepend node before head, if it exists
-
-        if self.head is None:
-            return 
-
         newNode = Node(item)
+
+        if self.tail is None:
+            self.tail = newNode
+        
 
         # TODO: Prepend node before head, if it exists
         newNode.next = self.head
-
         self.head = newNode
+
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
@@ -115,38 +111,52 @@ class LinkedList(object):
         # loop till current not equal to None 
         while current != None: 
             if quality(current.data) == True: 
+                print("{} node is found".format(quality))
                 return current.data # data found 
+
               
             current = current.next
-          
-        return False # Data Not found 
+        print("{} node not found".format(quality))
+        return None # Data Not found 
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
-        # TODO: Loop through all nodes to find one whose data matches given item
+        
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
         # Hint: raise ValueError('Item not found: {}'.format(item))
-        print("Deleting "+str(item))
-        if self.head is None:
-            return 
+        
+        # Delete a specific item
+        prev = None
+        curr = self.head
 
-
-        temp = self.head
-
-        while temp:
-            if temp.data == item:
-                print("item found")
-                next = temp.next
-
-                temp.next = None
-                temp.next = next
-                return
+        while curr is not None:
+            # A match is found!
+            if curr.data == item:
             
-            else:
-                temp = temp.next
+                # middle or end of the list
+                if prev is not None:
+                    prev.next = curr.next
+                    # end of the list
+                    if curr.next is None:
+                        self.tail = prev
+                # start of the list
+                else:
+                    self.head = self.head.next
+                    if self.length() == 0:
+                        self.tail = None 
+
+                print("{} node is deleted from list".format(item))
+                return True
+
+            prev = curr
+            curr = curr.next
+
+        print("{} node was not deleted from list".format(item))
+        return False
+            
 
 
 def test_linked_list():
@@ -156,7 +166,7 @@ def test_linked_list():
     print('\nTesting append:')
     for item in ['A', 'B', 'C']:
         print('append({!r})'.format(item))
-        ll.append(item)
+        ll.prepend(item)
         print('list: {}'.format(ll))
 
     print('head: {}'.format(ll.head))
@@ -164,13 +174,16 @@ def test_linked_list():
     print('length: {}'.format(ll.length()))
 
     # Enable this after implementing delete method
-    delete_implemented = False
+    delete_implemented = True
     if delete_implemented:
         print('\nTesting delete:')
         for item in ['B', 'C', 'A']:
             print('delete({!r})'.format(item))
             ll.delete(item)
-            print('list: {}'.format(ll))
+            print('\nlist: {}'.format(ll))
+            print('head: {}'.format(ll.head))
+            print('tail: {}'.format(ll.tail))
+            print('length: {}\n'.format(ll.length()))
 
         print('head: {}'.format(ll.head))
         print('tail: {}'.format(ll.tail))
