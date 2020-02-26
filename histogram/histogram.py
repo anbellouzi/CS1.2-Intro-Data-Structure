@@ -7,7 +7,7 @@ class Histogram():
 
     # return a histogram data structure that stores each unique word along with the number of times the word appears in the source text.
     def histogram():
-        filename = './adventure_holmes.txt'
+        filename = './text//adventure_holmes.txt'
         file = open(filename, 'r')
         lines = file.readlines()
 

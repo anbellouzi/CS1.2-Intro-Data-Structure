@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 import os
-from histogram import Histogram
-from dictonary_words import returnSentence
-from sample import sample
+from histogram.histogram import Histogram
+from histogram.sample import sample
 from random import randint
 
 
