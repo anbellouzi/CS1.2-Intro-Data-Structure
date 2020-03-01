@@ -27,7 +27,20 @@ def sample(histogram):
         if fence >= dart:
             return word
 
+def words_list():
+    filename = './text/adventure_holmes.txt'
+    file = open(filename, 'r')
+    lines = file.readlines()
 
+    words_list = []
+
+    for line in lines:
+        words = line.rstrip('\n').split()
+        for word in words:
+            words_list.append(word)
+    
+    
+    return words_list
 
 if __name__ == "__main__":
     file = open('onefix.txt', 'r')

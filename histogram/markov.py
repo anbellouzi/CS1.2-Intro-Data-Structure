@@ -1,4 +1,6 @@
+
 from dictogram import Dictogram
+# from sample import sample
 
 class MarkovChain:
 
@@ -32,10 +34,16 @@ class MarkovChain:
     def walk(self, num_words):
         #TODO: generate a sentence num_words long using the markov chain
         sentence = ''
+        word = self.first_word
         
-        for i in range(0, num_words):
-            pass
-            
+        # for i in range(0, num_words):
+        for i in range(num_words):
+
+            histogram = self.markov_chain[word]
+            next_word = sample(histogram)
+            sentence += next_word+" "
+            word = next_word
+        
         return sentence
 
     def print_chain(self):
@@ -44,6 +52,6 @@ class MarkovChain:
 
 
 
-markov_chain = MarkovChain(["one", "fish", "two", "fish", "red", "fish", "blue", "fish"])
+markov_chain = MarkovChain(["hello", "there", "two", "fish", "red", "fish", "blue", "fish"])
 markov_chain.print_chain()
 print(markov_chain.walk(10))

@@ -111,7 +111,7 @@ class LinkedList(object):
         # loop till current not equal to None 
         while current != None: 
             if quality(current.data) == True: 
-                print("{} node is found".format(quality))
+                # print("{} node is found".format(quality))
                 return current.data # data found 
 
               
@@ -148,13 +148,13 @@ class LinkedList(object):
                     if self.length() == 0:
                         self.tail = None 
 
-                print("{} node is deleted from list".format(item))
+                # print("{} node is deleted from list".format(item))
                 return True
 
             prev = curr
             curr = curr.next
 
-        print("{} node was not deleted from list".format(item))
+        # print("{} node was not deleted from list".format(item))
         return False
             
 

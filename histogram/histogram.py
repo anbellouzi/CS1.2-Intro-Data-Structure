@@ -22,6 +22,10 @@ class Histogram():
 
         return histogram
 
+    
+
+
+
 # returns the total count of unique words in the histogram
 def unique_words(histogram):
     total = 0
