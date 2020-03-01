@@ -72,9 +72,7 @@ def markov(num=0):
     return sentence
 
 
-
-
-
+# helper function to get number 
 def check_number(num):
     try:
         count = int(num)
