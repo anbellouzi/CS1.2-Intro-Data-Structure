@@ -1,6 +1,6 @@
 
-from dictogram import Dictogram
-# from sample import sample
+from histogram.dictogram import Dictogram
+from histogram.sample import sample
 
 class MarkovChain:
 

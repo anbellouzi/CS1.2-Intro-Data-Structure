@@ -1,5 +1,5 @@
 #!python
-
+import timeit
 
 class Node(object):
 
@@ -124,6 +124,8 @@ class LinkedList(object):
         TODO: Best case running time: O(???) Why and under what conditions?
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         
+        start = timeit.timeit()
+        
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
         # Hint: raise ValueError('Item not found: {}'.format(item))
@@ -155,6 +157,8 @@ class LinkedList(object):
             curr = curr.next
 
         # print("{} node was not deleted from list".format(item))
+        end = timeit.timeit()
+        print("Delete function ran for {} end - start)".format(start-end))
         return False
             
 
